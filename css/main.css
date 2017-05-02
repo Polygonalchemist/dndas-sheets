@@ -1,0 +1,439 @@
+/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Fonts
+   ========================================================================== */
+
+@font-face {
+    font-family: mentorsansstd;
+    src: url("fonts/ufonts.com_mentorsansstd-opentype.otf") format("opentype");
+}
+
+@font-face {
+    font-family: mentorsansstd;
+    font-weight: bold;
+    src: url("fonts/ufonts.com_mentorsansstd-bold-opentype.otf") format("opentype");
+}
+
+@font-face {
+    font-family: mentorsansstd;
+    font-style: italic;
+    src: url("fonts/ufonts.com_mentorsansstd-italic-opentype.otf") format("opentype");
+}
+
+
+@font-face {
+    font-family: mentorstd;
+    src: url("fonts/ufonts.com_mentorstd-opentype.otf") format("opentype");
+}
+
+@font-face {
+    font-family: mentorstd;
+    font-weight: bold;
+    src: url("fonts/ufonts.com_mentorstd-bold-opentype.otf") format("opentype");
+}
+
+@font-face {
+    font-family: mentorstd;
+    font-style: italic;
+    src: url("fonts/ufonts.com_mentorstd-italic-opentype.otf") format("opentype");
+}
+
+/* ==========================================================================
+   Toolbar
+   ========================================================================== */
+
+body {padding-top: 100px; padding-bottom: 100px}
+
+.navbar-btn {margin-left: .5em; margin-right: .5em;}
+
+
+/* ==========================================================================
+   Sheet Styles
+   ========================================================================== */
+
+/* General */
+
+.wide84 {
+    width: 2400px;
+    height: 1200px;
+}
+
+.wide85 {
+    width: 2550px;
+    height: 1650px;
+}
+
+#sheetwrapperwrapper {
+    position: relative;
+    width: 1240px;
+    height: 792px;
+    margin: auto;
+}
+#sheetwrapper {
+    position: absolute;
+    top: 0;
+    left: -637px;
+    -webkit-transform: scale(0.48);
+    -moz-transform: scale(0.48);
+    -o-transform: scale(0.48);
+    transform: scale(0.48);
+    -webkit-transform-origin:center top;
+    display: block;
+    width: 2550px;
+    height: 1650px;
+}
+
+@media (max-width: 1199px) {
+    #sheetwrapperwrapper {
+        width: 940px;
+        height: 596px;
+    }
+    #sheetwrapper {
+        left: -820px;
+        -webkit-transform: scale(0.36);
+        -moz-transform: scale(0.36);
+        -o-transform: scale(0.36);
+        transform: scale(0.36);
+    }
+}
+
+
+.sheetOuter {
+    margin: auto;
+    padding: .1%;
+    font-size: 20px;
+}
+.sheet {
+    display: block;
+    width: auto;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    filter: hue-rotate(0deg) saturate(100%);
+}
+
+
+
+.sheet .sheetbg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: -5;
+
+}
+
+.wide85 .sheetbg {
+    background-image: url("../img/hero-wide85-sheetbg.png");
+    background-position: center;
+    background-size: 100% 100% !important;
+    background-repeat: no-repeat;
+}
+
+.sheet .sheetBody {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+}
+
+
+/* Image */
+
+.charImg {
+    background-color: #444444;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 31%;
+    height: 100%;
+    z-index: -6;
+    background-position: center;
+    background-size: cover;
+    filter: sepia(100%);
+}
+
+
+
+/* Header */
+
+.sheet .head {
+    height: 15%;
+    position    : relative;
+    display: block;
+    color: #fff;
+    margin: 2.25% 31% 0 9%;
+}
+.sheet .head h1 {
+    font-family : mentorsansstd, sans-serif;
+    text-transform: uppercase;
+    font-size: 4em;
+    margin: 0;
+    display: inline-block;
+    overflow: visible;
+    min-height: 1em;
+    min-width: 5em;
+}
+
+.sheet .head h2 {
+    font-family : mentorsansstd, sans-serif;
+    text-transform: uppercase;
+    font-size: 2em;
+    margin: 0 0 0 1%;
+    display: inline-block;
+}
+
+.sheet .head .blurb {
+    font-family : mentorsansstd, sans-serif;
+    font-style: italic;
+    color: #fff;
+    font-size: 1.75em;
+    line-height: 1.25em;
+}
+
+
+/* Stats */
+
+.sheet .col {
+    display: block;
+    float: left;
+    padding: 1% .5%;
+    width: 34%;
+    margin: .25%;
+}
+.sheet .col:first-of-type {
+    margin-left: 1.75%;
+}
+
+.sheet .level {
+    display: block;
+    border: 1% solid rgba(128,116,64,1);
+    border-radius: 2em;
+    overflow: hidden;
+    margin-bottom: 1em;
+    padding: 0;
+    background-color: #807440;
+    z-index: 10;
+}
+.sheet .level h3:before {
+    position: absolute;
+    height: 6em;
+    width: 6em;
+    background-color: #fff;
+    border: 4px dashed #000;
+    border-radius: 50%;
+    content: "";
+    top: -3em;
+    left: -3em;
+}
+
+.sheet .level h3 {
+    display: block;
+    margin: 0;
+    padding: 0 3% 0 14%;
+    COLOR: #FFF;
+    font-size: 1.75em;
+    border-bottom: 2px solid #fff;
+    position: relative;
+}
+
+
+.sheet .level h3 .costs {
+    float: right;
+    top: .1em;
+}
+.sheet .level h3 .costs .n20,
+.sheet .level h3 .costs .town{
+    display: inline-block;
+    background-size: .8em .8em;
+    background-position : .1em .1em;
+    background-repeat: no-repeat;
+    padding-left: 1.1em;
+    position: relative;
+    width: auto;
+}
+.sheet .level h3 .costs .cost {
+    display: inline-block;
+    position: relative;
+    width: auto;
+}
+
+.sheet .level h3 .costs .n20 {
+    background-image: url("../img/icn-nat20.png");
+
+}
+.sheet .level h3 .costs .town{
+    background-image: url("../img/ico-town.png");
+}
+
+.sheet .BaseLevels .level h3 {
+    font-size: 2em;
+}
+
+
+.sheet .statRow {
+    font-family : mentorsansstd, sans-serif;
+    text-transform: uppercase;
+    display: table;
+    width: 90%;
+    list-style: none;
+    padding-left: 0;
+    margin: 6px 0 6px 1in;
+}
+
+.sheet .statRow .stat {
+    display: table-cell;
+    font-size: 1.2em;
+    text-align: center;
+    color: #fff;
+}
+
+.sheet .BaseLevels .statRow .stat {
+    font-size: 1.5em;
+}
+
+
+.sheet .statRow .stat .statBox {
+    display: inline-block;
+    font-weight: bold;
+    background-color: #fff;
+    font-size: 1.4em;
+    min-width: 2em;
+    padding: 3px 5px;
+    border-radius: 5px;
+    margin-left: .25em;
+    margin-right: .5em;
+    color: #000;
+    overflow: visible;
+}
+
+.sheet .BaseLevels .statRow .stat .statBox {
+    display: block;
+    font-size: 2em;
+
+}
+
+
+.sheet .powerBox {
+    display: block;
+    font-family : mentorstd, serif;
+    background-color: #fff;
+    margin: 0 .5em .5em .5em;
+    padding: .25em .6em;
+    border-radius: .2em .2em .8em .8em;
+    font-size: 1.8em;
+    line-height: 1em;
+    list-style-position: inside;
+    list-style-image: url("../img/bullet.png");
+}
+
+.sheet .BaseLevels .powerBox {
+    margin-top: .5em;
+    font-size: 2em;
+}
+
+.sheet .powerBox li{
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+.sheet .powerBox .powerCards {
+    margin: 0 0 0 2em;
+    display: block;
+}
+
+
+.sheet .powerBox .powerLabel {
+    font-family : mentorsansstd, sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.sheet .powerBox .specialLabel,
+.sheet .powerBox .specialText {
+    display: inline;
+    overflow: visible;
+    white-space: normal;
+}
+
+.sheet .powerBox .powerCards p {
+    margin: 0;
+}
+
+
+/* Color Selection */
+
+.colorTable tr td {
+    padding: .1em 1em;
+}
+
+#colorPreview {
+    background-color: #807440;
+    color: #fff;
+    padding: .5em 2em;
+    border-radius: .1em;
+    text-align: center;
+    filter: hue-rotate(0deg) saturate(100%);
+}
+
+#colorHueSlider .slider-track {
+    background-image: url("../img/colorbar.png");
+    background-size: 100% 100%;
+}
+
+#colorSatSlider .slider-track {
+    background-image: url("../img/satbar.png");
+    background-size: 100% 100%;
+}
+
+#colorHueSlider .slider-selection,
+#colorSatSlider .slider-selection {
+    background: none;
+}
+
+#colorPresets .preset {
+    display: inline-block;
+    text-align: center;
+    padding: .5em;
+    margin: .5em;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 100px;
+}
+
+.heroImgPos .label {
+    display: inline-block;
+    padding: 0;
+}
+.heroImgPos .input {
+    width: 1em;
+    height: 1em;
+}
+
+
+[contenteditable="true"]:hover { outline: 2px dashed #0090D2;}
+
+#saveModal img {width: 100%; height: auto;}
+

@@ -1,0 +1,712 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/vendor/normalize.css">
+  <link rel="stylesheet" href="css/vendor/medium.css">
+  <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="css/vendor/bootstrap-slider.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="js/vendor/jquery-1.12.0.min.js"></script>
+  <script src="js/vendor/dom-to-image.min.js"></script>
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an
+  <strong>outdated</strong> browser. Please
+  <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+</p><![endif]-->
+<!-- ###########
+     TOP TOOLBAR
+     ########### -->
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">D&D Adventure System</a>
+    </div>
+    <button class="btn btn-default navbar-btn navbar-right" type="button" title="Output the current sheet to a printable .png file." onClick="openSaveModel();">Output to PNG</button>
+  </div><!-- /.container-fluid -->
+</nav>
+<!-- ##########
+     HERO SHEET
+     ########## -->
+<div id="sheetwrapperwrapper">
+  <div id="sheetwrapper">
+    <section class="sheetOuter wide85" id="sheet1">
+      <section class="sheet">
+        <div class="charImg"></div>
+        <div class="sheetbg"></div>
+        <section class="sheetBody">
+          <section class="head">
+            <h1 id="heroName">Hero Name</h1>
+            <h2>
+              <span id="heroRace">RACE</span>
+              <span id="heroClass">CLASS</span>
+            </h2>
+            <div id="heroBlurb" class="blurb">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum lorem ac massa pharetra fringilla. Sed eget commodo nisi. Maecenas vestibulum dolor at orci mollis, nec ultricies enim elementum.
+            </div>
+          </section> <!-- .head -->
+          <section id="levels"></section>
+        </section> <!-- .sheetBody -->
+      </section> <!-- .sheet -->
+    </section> <!-- .sheetOuter -->
+  </div>
+</div>
+<!-- #########
+     TEMPLATES
+     ######### -->
+<section id="templates" class="hidden">
+  <!-- Base Style Levels -->
+  <section id="BaseLevels">
+    <div class="col">
+      <div class="level level1">
+        <h3>1st Level</h3>
+        <ul class="statRow">
+          <li class="stat">AC<span class="statBox AC">17</span>
+          </li>
+          <li class="stat">HP<span class="statBox HP">10</span>
+          </li>
+          <li class="stat">Speed<span class="statBox Speed">5</span>
+          </li>
+          <li class="stat">Surge<span class="statBox SurgeHP">5</span>
+          </li>
+        </ul> <!-- .statRow -->
+        <ul class="powerBox">
+          <li>
+            <span class="powerLabel specialLabel">Defender</span>:
+            <span class="specialText">You protect your friends. Wile another hero is on the same tile as you, he or she gains a +1 bonus to Armor Class.</span>
+          </li>
+          <li>
+            <span class="powerLabel">Powers</span>: You can use the following Power Cards:
+            <div class="powerCards">
+              <p>Special Power</p>
+              <p>Select 1
+                <span class="classPH">CLASS</span> Utility Power
+              </p>
+              <p>Select 2
+                <span class="classPH">CLASS</span> At-Will Powers
+              </p>
+              <p>Select 1
+                <span class="classPH">CLASS</span> Daily Power
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div> <!-- .level1 -->
+    </div> <!-- .col -->
+    <div class="col">
+      <div class="level level2">
+        <h3>2nd Level
+          <span class="costs">Costs:
+            <span class="cost">10XP</span> /
+            <span class="n20">5XP</span></span>
+        </h3>
+        <ul class="statRow">
+          <li class="stat">AC<span class="statBox AC">17</span>
+          </li>
+          <li class="stat">HP<span class="statBox HP">10</span>
+          </li>
+          <li class="stat">Speed<span class="statBox Speed">5</span>
+          </li>
+          <li class="stat">Surge<span class="statBox SurgeHP">5</span>
+          </li>
+        </ul> <!-- .statRow -->
+        <ul class="powerBox">
+          <li>
+            <span class="powerLabel">Critical Hit</span>: When you attack and roll a natural 20, you deal +1 damage.
+          </li>
+          <li>Select 1 new
+            <span class="classPH">CLASS</span> Daily Power
+          </li>
+        </ul> <!-- .powerBox -->
+      </div> <!-- .level .level2 -->
+    </div> <!-- .col -->
+  </section>
+  <!-- Ninjadorg Style Levels -->
+  <section id="NinjadorgLevels">
+    <div class="col">
+      <div class="level level1">
+        <h3>1st Level</h3>
+        <ul class="statRow">
+          <li class="stat">AC<span class="statBox AC">17</span>
+          </li>
+          <li class="stat">HP<span class="statBox HP">10</span>
+          </li>
+          <li class="stat">Speed<span class="statBox Speed">5</span>
+          </li>
+          <li class="stat">Surge<span class="statBox SurgeHP">5</span>
+          </li>
+        </ul> <!-- .statRow -->
+        <ul class="powerBox">
+          <li>
+            <span class="powerLabel specialLabel">Defender</span>:
+            <span class="specialText">You protect your friends. Wile another hero is on te same tile as you, he or she gains a +1 bonus to Armor Class.</span>
+          </li>
+          <li>
+            <span class="powerLabel">Powers</span>: You can use the following Power Cards:
+            <div class="powerCards">
+              <p>Special Power</p>
+              <p>Select 1
+                <span class="classPH">CLASS</span> Utility Power
+              </p>
+              <p>Select 2
+                <span class="classPH">CLASS</span> At-Will Powers
+              </p>
+              <p>Select 1
+                <span class="classPH">CLASS</span> Daily Power
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div> <!-- .level1 -->
+      <div class="level level2">
+        <h3>2nd Level
+          <span class="costs">Costs:
+            <span class="cost">10XP</span> /
+            <span class="n20">5XP</span></span>
+        </h3>
+        <ul class="statRow">
+          <li class="stat">AC<span class="statBox AC">17</span>
+          </li>
+          <li class="stat">HP<span class="statBox HP">10</span>
+          </li>
+          <li class="stat">Speed<span class="statBox Speed">5</span>
+          </li>
+          <li class="stat">Surge<span class="statBox SurgeHP">5</span>
+          </li>
+        </ul> <!-- .statRow -->
+        <ul class="powerBox">
+          <li>
+            <span class="powerLabel">Critical Hit</span>: When you attack and roll a natural 20, you deal +1 damage.
+          </li>
+          <li>Select 1 new
+            <span class="classPH">CLASS</span> Daily Power
+          </li>
+        </ul> <!-- .powerBox -->
+      </div> <!-- .level .level2 -->
+    </div>
+    <div class="col">
+      <div class="level level3">
+        <h3>3rd Level<span class="costs">Costs:
+          <span class="n20">20XP</span>
+          <span class="town">13XP</span></span>
+        </h3>
+        <ul class="statRow">
+          <li class="stat">AC<span class="statBox AC">17</span>
+          </li>
+          <li class="stat">HP<span class="statBox HP">10</span>
+          </li>
+          <li class="stat">Speed<span class="statBox Speed">5</span>
+          </li>
+          <li class="stat">Surge<span class="statBox SurgeHP">5</span>
+          </li>
+        </ul> <!-- .statRow -->
+        <ul class="powerBox">
+          <li>
+            <span class="powerLabel">Critical Hit</span>: When you attack and roll a natural 20, you deal +2 damage.
+          </li>
+          <li>Select 1 new
+            <span class="classPH">CLASS</span> Utility Power
+          </li>
+        </ul> <!-- .powerBox -->
+      </div> <!-- .level .level3 -->
+      <div class="level level4">
+        <h3>4th Level<span class="costs">Costs:
+          <span class="n20">30XP</span>
+          <span class="town">22XP</span></span>
+        </h3>
+        <ul class="statRow">
+          <li class="stat">AC<span class="statBox AC">17</span>
+          </li>
+          <li class="stat">HP<span class="statBox HP">10</span>
+          </li>
+          <li class="stat">Speed<span class="statBox Speed">5</span>
+          </li>
+          <li class="stat">Surge<span class="statBox SurgeHP">5</span>
+          </li>
+        </ul> <!-- .statRow -->
+        <ul class="powerBox">
+          <li>
+            <span class="powerLabel">Critical Hit</span>: When you attack and roll a natural 20, you deal +3 damage.
+          </li>
+          <li>Select 1 new
+            <span class="classPH">CLASS</span> At-Will Power
+          </li>
+        </ul> <!-- .powerBox -->
+      </div> <!-- .level .level4 -->
+      <div class="level level5">
+        <h3>5th Level<span class="costs">Costs:
+          <span class="n20">40XP</span>
+          <span class="town">34XP</span></span>
+        </h3>
+        <ul class="statRow">
+          <li class="stat">AC<span class="statBox AC">17</span>
+          </li>
+          <li class="stat">HP<span class="statBox HP">10</span>
+          </li>
+          <li class="stat">Speed<span class="statBox Speed">5</span>
+          </li>
+          <li class="stat">Surge<span class="statBox SurgeHP">5</span>
+          </li>
+        </ul> <!-- .statRow -->
+        <ul class="powerBox">
+          <li>
+            <span class="powerLabel">Critical Hit</span>: When you attack and roll a natural 20, you deal +4 damage.
+          </li>
+          <li>Select 1 new
+            <span class="classPH">CLASS</span> Daily Power
+          </li>
+        </ul> <!-- .powerBox -->
+      </div> <!-- .level .level5 -->
+    </div>
+  </section>
+  <!-- GeckoTH Style Levels -->
+  <section id="GeckoTHLevels">
+    <div class="col">
+      <div class="level level1">
+        <h3>1st Level</h3>
+        <ul class="statRow">
+          <li class="stat">AC<span class="statBox AC">17</span>
+          </li>
+          <li class="stat">HP<span class="statBox HP">10</span>
+          </li>
+          <li class="stat">Speed<span class="statBox Speed">5</span>
+          </li>
+          <li class="stat">Surge<span class="statBox SurgeHP">5</span>
+          </li>
+        </ul> <!-- .statRow -->
+        <ul class="powerBox">
+          <li>
+            <span class="powerLabel specialLabel">Defender</span>:
+            <span class="specialText">You protect your friends. Wile another hero is on te same tile as you, he or she gains a +1 bonus to Armor Class.</span>
+          </li>
+          <li>
+            <span class="powerLabel">Powers</span>: You can use the following Power Cards:
+            <div class="powerCards">
+              <p>Special Power</p>
+              <p>Select 1
+                <span class="classPH">CLASS</span> Utility Power
+              </p>
+              <p>Select 2
+                <span class="classPH">CLASS</span> At-Will Powers
+              </p>
+              <p>Select 1
+                <span class="classPH">CLASS</span> Daily Power
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div> <!-- .level1 -->
+      <div class="level level2">
+        <h3>2nd Level
+          <span class="costs">Costs:
+            <span class="cost">10XP</span> /
+            <span class="n20">5XP</span></span>
+        </h3>
+        <ul class="statRow">
+          <li class="stat">AC<span class="statBox AC">17</span>
+          </li>
+          <li class="stat">HP<span class="statBox HP">10</span>
+          </li>
+          <li class="stat">Speed<span class="statBox Speed">5</span>
+          </li>
+          <li class="stat">Surge<span class="statBox SurgeHP">5</span>
+          </li>
+        </ul> <!-- .statRow -->
+        <ul class="powerBox">
+          <li>
+            <span class="powerLabel">Critical Hit</span>: When you attack and roll a 20, you deal +1 damage.
+          </li>
+          <li>Select 1 new
+            <span class="classPH">CLASS</span> Daily Power
+          </li>
+        </ul> <!-- .powerBox -->
+      </div> <!-- .level .level2 -->
+    </div>
+    <div class="col">
+      <div class="level level3">
+        <h3>3rd Level<span class="costs">Costs:
+          <span class="n20">20XP</span>
+          <span class="town">13XP</span></span>
+        </h3>
+        <ul class="statRow">
+          <li class="stat">AC<span class="statBox AC">17</span>
+          </li>
+          <li class="stat">HP<span class="statBox HP">10</span>
+          </li>
+          <li class="stat">Speed<span class="statBox Speed">5</span>
+          </li>
+          <li class="stat">Surge<span class="statBox SurgeHP">5</span>
+          </li>
+        </ul> <!-- .statRow -->
+        <ul class="powerBox">
+          <li>
+            <span class="powerLabel">Critical Hit</span>: When you attack and roll a 19 or 20, you deal +1 damage.
+          </li>
+          <li>Select 1 new
+            <span class="classPH">CLASS</span> Utility Power
+          </li>
+        </ul> <!-- .powerBox -->
+      </div> <!-- .level .level3 -->
+      <div class="level level4">
+        <h3>4th Level<span class="costs">Costs:
+          <span class="n20">30XP</span>
+          <span class="town">22XP</span></span>
+        </h3>
+        <ul class="statRow">
+          <li class="stat">AC<span class="statBox AC">17</span>
+          </li>
+          <li class="stat">HP<span class="statBox HP">10</span>
+          </li>
+          <li class="stat">Speed<span class="statBox Speed">5</span>
+          </li>
+          <li class="stat">Surge<span class="statBox SurgeHP">5</span>
+          </li>
+        </ul> <!-- .statRow -->
+        <ul class="powerBox">
+          <li>
+            <span class="powerLabel">Critical Hit</span>: When you attack and roll a 18-20, you deal +1 damage.
+          </li>
+          <li>Select 1 new
+            <span class="classPH">CLASS</span> At-Will Power
+          </li>
+        </ul> <!-- .powerBox -->
+      </div> <!-- .level .level4 -->
+      <div class="level level5">
+        <h3>5th Level<span class="costs">Costs:
+          <span class="n20">40XP</span>
+          <span class="town">34XP</span></span>
+        </h3>
+        <ul class="statRow">
+          <li class="stat">AC<span class="statBox AC">17</span>
+          </li>
+          <li class="stat">HP<span class="statBox HP">10</span>
+          </li>
+          <li class="stat">Speed<span class="statBox Speed">5</span>
+          </li>
+          <li class="stat">Surge<span class="statBox SurgeHP">5</span>
+          </li>
+        </ul> <!-- .statRow -->
+        <ul class="powerBox">
+          <li>
+            <span class="powerLabel">Critical Hit</span>: When you attack and roll a 17-20, you deal +1 damage.
+          </li>
+          <li>Select 1 new
+            <span class="classPH">CLASS</span> Daily Power
+          </li>
+        </ul> <!-- .powerBox -->
+      </div> <!-- .level .level5 -->
+    </div>
+  </section>
+  <!-- AerynB Style Levels -->
+  <section id="AerynBLevels">
+    <div class="col">
+      <div class="level level1">
+        <h3>1st Level</h3>
+        <ul class="statRow">
+          <li class="stat">AC<span class="statBox AC">17</span>
+          </li>
+          <li class="stat">HP<span class="statBox HP">10</span>
+          </li>
+          <li class="stat">Speed<span class="statBox Speed">5</span>
+          </li>
+          <li class="stat">Surge<span class="statBox SurgeHP">5</span>
+          </li>
+        </ul> <!-- .statRow -->
+        <ul class="powerBox">
+          <li>
+            <span class="powerLabel specialLabel">Defender</span>:
+            <span class="specialText">You protect your friends. Wile another hero is on te same tile as you, he or she gains a +1 bonus to Armor Class.</span>
+          </li>
+          <li>
+            <span class="powerLabel">Powers</span>: You can use the following Power Cards for this character:
+            <div class="powerCards">
+              <p>Special Power</p>
+              <p>Select 1
+                <span class="classPH">CLASS</span> Utility Power
+              </p>
+              <p>Select 2
+                <span class="classPH">CLASS</span> At-Will Powers
+              </p>
+              <p>Select 1
+                <span class="classPH">CLASS</span> Daily Power
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div> <!-- .level1 -->
+      <div class="level level2">
+        <h3>2nd Level
+          <span class="costs">Costs:
+            <span class="n20">3XP</span>
+            <span class="town">7XP</span></span>
+        </h3>
+        <ul class="statRow">
+          <li class="stat">AC<span class="statBox AC">17</span>
+          </li>
+          <li class="stat">HP<span class="statBox HP">10</span>
+          </li>
+          <li class="stat">Speed<span class="statBox Speed">5</span>
+          </li>
+          <li class="stat">Surge<span class="statBox SurgeHP">5</span>
+          </li>
+        </ul> <!-- .statRow -->
+        <ul class="powerBox">
+          <li>Select 1 new
+            <span class="classPH">CLASS</span> Daily Power
+          </li>
+        </ul> <!-- .powerBox -->
+      </div> <!-- .level .level2 -->
+      <div class="level level3">
+        <h3>3rd Level<span class="costs">Costs:
+          <span class="n20">6XP</span>
+          <span class="town">13XP</span></span>
+        </h3>
+        <ul class="statRow">
+          <li class="stat">AC<span class="statBox AC">17</span>
+          </li>
+          <li class="stat">HP<span class="statBox HP">10</span>
+          </li>
+          <li class="stat">Speed<span class="statBox Speed">5</span>
+          </li>
+          <li class="stat">Surge<span class="statBox SurgeHP">5</span>
+          </li>
+        </ul> <!-- .statRow -->
+        <ul class="powerBox">
+          <li>
+            <span class="powerLabel">Hero’s Instinct</span>: After
+            <span class="classEvent">an
+              <strong>Event</strong></span> Encounter card is drawn you may try to cancel it with a D10 roll less than or equal to your level.
+          </li>
+          <li>Select 1 new
+            <span class="classPH">CLASS</span> Utility Power
+          </li>
+          <li>Gain a reroll token</li>
+        </ul> <!-- .powerBox -->
+      </div> <!-- .level .level3 -->
+    </div>
+    <div class="col">
+      <div class="level level4">
+        <h3>4th Level<span class="costs">Costs:
+          <span class="n20">10XP</span>
+          <span class="town">22XP</span></span>
+        </h3>
+        <ul class="statRow">
+          <li class="stat">AC<span class="statBox AC">17</span>
+          </li>
+          <li class="stat">HP<span class="statBox HP">10</span>
+          </li>
+          <li class="stat">Speed<span class="statBox Speed">5</span>
+          </li>
+          <li class="stat">Surge<span class="statBox SurgeHP">5</span>
+          </li>
+        </ul> <!-- .statRow -->
+        <ul class="powerBox">
+          <li>Gain a +1 Damage token</li>
+          <li>Select 1 more
+            <span class="classPH">CLASS</span> At-Will Power
+          </li>
+        </ul> <!-- .powerBox -->
+      </div> <!-- .level .level4 -->
+      <div class="level level5">
+        <h3>5th Level<span class="costs">Costs:
+          <span class="n20">15XP</span>
+          <span class="town">34XP</span></span>
+        </h3>
+        <ul class="statRow">
+          <li class="stat">AC<span class="statBox AC">17</span>
+          </li>
+          <li class="stat">HP<span class="statBox HP">10</span>
+          </li>
+          <li class="stat">Speed<span class="statBox Speed">5</span>
+          </li>
+          <li class="stat">Surge<span class="statBox SurgeHP">5</span>
+          </li>
+        </ul> <!-- .statRow -->
+        <ul class="powerBox">
+          <li>Gain a Regain 2 HP token</li>
+          <li>Gain a Recharge token</li>
+          <li>Select 1 more
+            <span class="classPH">CLASS</span> Daily Power
+          </li>
+        </ul> <!-- .powerBox -->
+      </div> <!-- .level .level5 -->
+      <div class="level level6">
+        <h3>6th Level<span class="costs">Costs:
+          <span class="n20">21XP</span>
+          <span class="town">48XP</span></span>
+        </h3>
+        <ul class="statRow">
+          <li class="stat">AC<span class="statBox AC">17</span>
+          </li>
+          <li class="stat">HP<span class="statBox HP">10</span>
+          </li>
+          <li class="stat">Speed<span class="statBox Speed">5</span>
+          </li>
+          <li class="stat">Surge<span class="statBox SurgeHP">5</span>
+          </li>
+        </ul> <!-- .statRow -->
+        <ul class="powerBox">
+          <li>Gain remaining power cards</li>
+        </ul> <!-- .powerBox -->
+      </div> <!-- .level .level6 -->
+    </div>
+  </section>
+</section>
+<!-- ########
+     SETTINGS
+     ######## -->
+<section id="settings" class="container">
+  <div class="row">
+    <h2>Sheet Layout</h2>
+    <div class="col-sm-4">
+      <h3>Level Style</h3>
+      <div class="btn-group-vertical" data-toggle="buttons" role="group">
+        <label class="btn btn-primary active">
+          <input type="radio" name="levelType" id="LevelTypeBase" value="Base" autocomplete="off" checked> Base Game
+        </label>
+        <label class="btn btn-primary">
+          <input type="radio" name="levelType" id="LevelTypeNinjadorg" value="Ninjadorg" autocomplete="off"> Ninjadorg's 5 Level Rules
+        </label>
+        <label class="btn btn-primary">
+          <input type="radio" name="levelType" id="LevelTypeGeckoTH" value="GeckoTH" autocomplete="off"> GeckoTH's 5 Level Rules
+        </label>
+        <label class="btn btn-primary">
+          <input type="radio" name="levelType" id="LevelTypeAerynB" value="AerynB" autocomplete="off"> AerynB's 6 Level Rules
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <h2>Sheet Color</h2>
+    <div class="col-md-4">
+      <div id="colorPreview">Current Color</div>
+      <table class="colorTable">
+        <tr>
+          <td>
+            <label for="colorHue">Hue</label>
+          </td>
+          <td>
+            <input id="colorHue" class="colorSlider" data-slider-id='colorHueSlider' type="text" data-slider-min="0" data-slider-max="360" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide" data-slider-handle="triangle"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="colorSat">Saturation</label>
+          </td>
+          <td>
+            <input id="colorSat" class="colorSlider" data-slider-id='colorSatSlider' type="text" data-slider-min="0" data-slider-max="200" data-slider-step="1" data-slider-value="100" data-slider-tooltip="hide" data-slider-handle="triangle"/>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="colorPresets" class="col-md-8">
+      <span class="preset" data-hue="0" data-sat="0" style="background-color:#737373;">Rogue</span>
+      <span class="preset" data-hue="207" data-sat="38" style="background-color:#777086;">Wizard</span>
+      <span class="preset" data-hue="59" data-sat="145" style="background-color:#5a9331;">Ranger</span>
+      <span class="preset" data-hue="329" data-sat="132" style="background-color:#a46942;">Fighter</span>
+      <span class="preset" data-hue="0" data-sat="128" style="background-color:#807440;">Cleric</span>
+      <span class="preset" data-hue="180" data-sat="52" style="background-color:#6c728d;">Assassin</span>
+      <span class="preset" data-hue="133" data-sat="52" style="background-color:#5b7980;">Paladin</span>
+      <span class="preset" data-hue="133" data-sat="85" style="background-color:#285c64;">Mercenary</span>
+      <span class="preset" data-hue="148" data-sat="172" style="background-color:#0b75a8;">Barbarian</span>
+      <span class="preset" data-hue="350" data-sat="200" style="background-color:#c25e33;">Archer</span>
+      <span class="preset" data-hue="341" data-sat="100" style="background-color:#906f47;">Battlerager</span>
+    </div>
+  </div>
+  <div class="row">
+    <h2>Hero Image</h2>
+    <div class="col-sm-3">
+      <label>Select Hero Image
+        <input id="heroImageSelect" type="file" onchange="previewFile()"></label>
+    </div>
+    <div class="col-sm-9">
+      <label>Align Image</label>
+      <br/>
+      <div class="btn-group heroImgPos" data-toggle="buttons" role="group">
+        <label class="btn">
+          <input type="radio" name="heroImageAlign" id="heroImageAlignTL" value="top left" autocomplete="off" checked> &#8598;
+        </label>
+        <label class="btn">
+          <input type="radio" name="heroImageAlign" id="heroImageAlignTC" value="top center" autocomplete="off" checked> &#8593;
+        </label>
+        <label class="btn">
+          <input type="radio" name="heroImageAlign" id="heroImageAlignTR" value="top right" autocomplete="off" checked> &#8599;
+        </label>
+        <br/>
+        <label class="btn">
+          <input type="radio" name="heroImageAlign" id="heroImageAlignCL" value="center left" autocomplete="off" checked> &#8592;
+        </label>
+        <label class="btn active">
+          <input type="radio" name="heroImageAlign" id="heroImageAlignCC" value="center center" autocomplete="off" checked> &nbsp;
+        </label>
+        <label class="btn">
+          <input type="radio" name="heroImageAlign" id="heroImageAlignCR" value="center right" autocomplete="off" checked> &#8594;
+        </label>
+        <br/>
+        <label class="btn">
+          <input type="radio" name="heroImageAlign" id="heroImageAlignBL" value="bottom left" autocomplete="off" checked> &#8601;
+        </label>
+        <label class="btn">
+          <input type="radio" name="heroImageAlign" id="heroImageAlignBC" value="bottom center" autocomplete="off" checked> &#8595;
+        </label>
+        <label class="btn">
+          <input type="radio" name="heroImageAlign" id="heroImageAlignBR" value="bottom right" autocomplete="off" checked> &#8600;
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <h2>Character Options</h2>
+    <div class="col-sm-6">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" id="vilHero"> Hero is a "Villainous Heroe".
+        </label>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ################
+     SAVE IMAGE MODAL
+     ################ -->
+<div class="modal fade" id="saveModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Sheet and Card Images</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          <strong>NOTE:</strong> To save, right-click on an imge and save it. Images are scaled down here for previewing, when saved they will retain their full size.
+        </p>
+        <div class="row">
+          <div class="col-sm-12" id="previewSheetImg"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/vendor/rangy-core.js"></script>
+<script src="js/vendor/rangy-classapplier.js"></script>
+<script src="js/vendor/undo.js"></script>
+<script src="js/vendor/medium.min.js"></script>
+<script src="js/vendor/bootstrap-slider.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
