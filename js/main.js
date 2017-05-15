@@ -1,4 +1,5 @@
 // color presets
+var currentSheetStyle = 'wide85';
 var currentLevelStyle = "Base";
 
 var heroClass = "CLASS";
@@ -20,8 +21,15 @@ function changeLevelType( type ) {
 	for ( var key in levelFields ) {
 		levelFields[key].destroy();
 	}
-
-	var template = $( '#' + type + 'Levels' ).html();
+	if ("AerynB" == type) {
+		if ( currentSheetStyle == 'wide85' ) {
+			var template = $( '#AerynBLevels85' ).html();
+		} else if ( currentSheetStyle == 'wide84' ) {
+			var template = $( '#AerynBLevels84' ).html();
+		}
+	} else {
+		var template = $( '#' + type + 'Levels' ).html();
+	}
 	$( '#levels' ).html( template ).removeClass().addClass( type + 'Levels' );
 
 	// setup 1st level fields
@@ -83,6 +91,11 @@ function changeLevelType( type ) {
 	} );
 	$( ".statBox" ).blur( updateStats );
 	updateStats()
+}
+
+function changeSheetType( type ) {
+	$('#sheet1').removeClass().addClass('sheetOuter ' + type);
+	changeLevelType( currentLevelStyle );
 }
 
 function updateStats() {
@@ -197,6 +210,12 @@ $( document ).ready( function () {
 		currentLevelStyle = this.value;
 		changeLevelType( currentLevelStyle );
 	} );
+
+	$( 'input[type=radio][name=sheetStyle]' ).change( function () {
+		currentSheetStyle = this.value;
+		changeSheetType( currentSheetStyle );
+	} );
+
 
 	$( 'input[type=radio][name=heroImageAlign]' ).change( function () {
 		var newAlign = this.value;

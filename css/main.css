@@ -75,11 +75,13 @@ body {padding-top: 100px; padding-bottom: 100px}
 .wide84 {
     width: 2400px;
     height: 1200px;
+    font-size: 19px;
 }
 
 .wide85 {
     width: 2550px;
     height: 1650px;
+    font-size: 20px;
 }
 
 #sheetwrapperwrapper {
@@ -120,7 +122,6 @@ body {padding-top: 100px; padding-bottom: 100px}
 .sheetOuter {
     margin: auto;
     padding: .1%;
-    font-size: 20px;
 }
 .sheet {
     display: block;
@@ -150,6 +151,13 @@ body {padding-top: 100px; padding-bottom: 100px}
     background-repeat: no-repeat;
 }
 
+.wide84 .sheetbg {
+    background-image: url("../img/hero-wide84-sheetbg.png");
+    background-position: center;
+    background-size: 100% 100% !important;
+    background-repeat: no-repeat;
+}
+
 .sheet .sheetBody {
     width: 100%;
     height: 100%;
@@ -167,13 +175,21 @@ body {padding-top: 100px; padding-bottom: 100px}
     top: 0;
     right: 0;
     bottom: 0;
-    width: 31%;
     height: 100%;
     z-index: -6;
     background-position: center;
     background-size: cover;
     filter: sepia(100%);
 }
+
+.wide84 .charImg {
+    width: 25%;
+}
+
+.wide85 .charImg {
+    width: 31%;
+}
+
 
 
 
@@ -186,6 +202,14 @@ body {padding-top: 100px; padding-bottom: 100px}
     color: #fff;
     margin: 2.25% 31% 0 9%;
 }
+.wide84 .head {
+    margin: 1.5% 26% 0 9%;
+}
+
+.wide85 .head {
+    margin: 2.25% 32% 0 9%;
+}
+
 .sheet .head h1 {
     font-family : mentorsansstd, sans-serif;
     text-transform: uppercase;
@@ -220,9 +244,21 @@ body {padding-top: 100px; padding-bottom: 100px}
     display: block;
     float: left;
     padding: 1% .5%;
-    width: 34%;
     margin: .25%;
 }
+
+.wide84 .col {
+    width: 37%;
+}
+
+.wide85 .col {
+    width: 34%;
+}
+
+.wide84 .AerynBLevels .col{
+    width: 24.5%;
+}
+
 .sheet .col:first-of-type {
     margin-left: 1.75%;
 }
@@ -249,6 +285,11 @@ body {padding-top: 100px; padding-bottom: 100px}
     left: -3em;
 }
 
+.wide84 .AerynBLevels .level h3:before {
+    top: -3.25em;
+    left: -3.25em;
+}
+
 .sheet .level h3 {
     display: block;
     margin: 0;
@@ -259,6 +300,10 @@ body {padding-top: 100px; padding-bottom: 100px}
     position: relative;
 }
 
+.wide84 .AerynBLevels .level h3 {
+    padding-left: 18.5%;
+    padding-right: 4%;
+}
 
 .sheet .level h3 .costs {
     float: right;
@@ -290,6 +335,7 @@ body {padding-top: 100px; padding-bottom: 100px}
 
 .sheet .BaseLevels .level h3 {
     font-size: 2em;
+    padding-left: 15%;
 }
 
 
@@ -303,6 +349,11 @@ body {padding-top: 100px; padding-bottom: 100px}
     margin: 6px 0 6px 1in;
 }
 
+.wide84 .AerynBLevels .statRow {
+    margin-left: .75in;
+    padding-right: 1em;
+}
+
 .sheet .statRow .stat {
     display: table-cell;
     font-size: 1.2em;
@@ -313,7 +364,6 @@ body {padding-top: 100px; padding-bottom: 100px}
 .sheet .BaseLevels .statRow .stat {
     font-size: 1.5em;
 }
-
 
 .sheet .statRow .stat .statBox {
     display: inline-block;
@@ -335,6 +385,11 @@ body {padding-top: 100px; padding-bottom: 100px}
 
 }
 
+.wide84 .AerynBLevels .statRow .stat .statBox{
+    margin-right: 0;
+    font-size: 1.1em;
+}
+
 
 .sheet .powerBox {
     display: block;
@@ -345,8 +400,7 @@ body {padding-top: 100px; padding-bottom: 100px}
     border-radius: .2em .2em .8em .8em;
     font-size: 1.8em;
     line-height: 1em;
-    list-style-position: inside;
-    list-style-image: url("../img/bullet.png");
+    list-style: none;
 }
 
 .sheet .BaseLevels .powerBox {
@@ -357,10 +411,18 @@ body {padding-top: 100px; padding-bottom: 100px}
 .sheet .powerBox li{
     margin-top: .5em;
     margin-bottom: .5em;
+    background-image: url("../img/bullet.png");
+    background-repeat: no-repeat;
+    background-position: 0 .3em;
+    text-indent: .75em;
 }
 .sheet .powerBox .powerCards {
     margin: 0 0 0 2em;
     display: block;
+}
+
+.wide84 .AerynBLevels .powerBox .powerCards {
+    margin-left: 0;
 }
 
 
