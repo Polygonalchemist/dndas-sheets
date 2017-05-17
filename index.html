@@ -53,7 +53,7 @@
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum lorem ac massa pharetra fringilla. Sed eget commodo nisi. Maecenas vestibulum dolor at orci mollis, nec ultricies enim elementum.
             </div>
           </section> <!-- .head -->
-          <section id="levels"></section>
+          <section id="levels" class="markerOne"></section>
         </section> <!-- .sheetBody -->
       </section> <!-- .sheet -->
     </section> <!-- .sheetOuter -->
@@ -719,7 +719,7 @@
 <section id="settings" class="container">
   <div class="row">
     <h2>Sheet Layout</h2>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       <h3>Sheet Style</h3>
       <div class="btn-group-vertical" data-toggle="buttons" role="group">
         <label class="btn btn-primary">
@@ -730,7 +730,7 @@
         </label>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       <h3>Level Style</h3>
       <div class="btn-group-vertical" data-toggle="buttons" role="group">
         <label class="btn btn-primary active">
@@ -747,6 +747,21 @@
         </label>
       </div>
     </div>
+    <div class="col-sm-3">
+      <h3>Level Marker</h3>
+      <div class="btn-group-vertical" data-toggle="buttons" role="group">
+        <label class="btn btn-primary">
+          <input type="radio" name="levelMarker" id="levelMarkerNone" value="markerNone" autocomplete="off" checked> None
+        </label>
+<!--        <label class="btn btn-primary">
+          <input type="radio" name="levelMarker" id="levelMarkerHalf" value="markerHalf" autocomplete="off" checked> Half Inch
+        </label> -->
+        <label class="btn btn-primary active">
+          <input type="radio" name="levelMarker" id="levelMarkerOne" value="markerOne" autocomplete="off" checked> One Inch
+        </label>
+      </div>
+    </div>
+
   </div>
   <div class="row">
     <h2>Sheet Color</h2>
@@ -838,6 +853,16 @@
     </div>
   </div>
 </section>
+<footer class="pageFoot">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">Created by Polygonalchemist. Free to duplicate and modify.</div>
+      <div class="col-sm-6" style="text-align: right"><a href="https://github.com/Polygonalchemist/dndas-sheets">Github</a></div>
+    </div>
+  </div>
+</footer>
+
+
 <!-- ################
      SAVE IMAGE MODAL
      ################ -->

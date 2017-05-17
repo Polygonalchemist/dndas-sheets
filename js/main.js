@@ -1,9 +1,22 @@
 // color presets
 var currentSheetStyle = 'wide85';
 var currentLevelStyle = "Base";
+var currentMarkerSize = "markerOne";
 
 var heroClass = "CLASS";
 
+/* --------------------------
+   Change Overall Sheet Style
+   --------------------------  */
+function changeSheetType( type ) {
+	$('#sheet1').removeClass(currentSheetStyle).addClass(type);
+	currentSheetStyle = type;
+	changeLevelType( currentLevelStyle );
+}
+
+/* ----------------------
+   Change Level-up System
+   ---------------------- */
 function changeLevelType( type ) {
 
 	// get values of old fields
@@ -30,7 +43,7 @@ function changeLevelType( type ) {
 	} else {
 		var template = $( '#' + type + 'Levels' ).html();
 	}
-	$( '#levels' ).html( template ).removeClass().addClass( type + 'Levels' );
+	$( '#levels' ).html( template ).removeClass(currentLevelStyle + 'Levels').addClass( type + 'Levels' );
 
 	// setup 1st level fields
 	if ( ! isNaN( l1ac ) ) {
@@ -90,14 +103,23 @@ function changeLevelType( type ) {
 		placeholder: ''
 	} );
 	$( ".statBox" ).blur( updateStats );
+
+	currentLevelStyle = type;
+
 	updateStats()
 }
 
-function changeSheetType( type ) {
-	$('#sheet1').removeClass().addClass('sheetOuter ' + type);
-	changeLevelType( currentLevelStyle );
+/* ------------------------
+   Change Level Marker Size
+   ------------------------  */
+function changeMarkerSize( type ) {
+	$('#levels').removeClass(currentMarkerSize).addClass(type);
+	currentMarkerSize = type;
 }
 
+/* ------------------------------------
+   Update All Stats From Entered Fields
+   ------------------------------------ */
 function updateStats() {
 	var l1ac = parseInt( $( '.sheet .level1 .AC' ).text() );
 	var l1hp = parseInt( $( '.sheet .level1 .HP' ).text() );
@@ -121,6 +143,49 @@ function updateStats() {
 	}
 }
 
+/* -----------------------------
+   Update Hero Class Across Card
+   ----------------------------- */
+var updateClass = function () {
+
+	// update class fields
+	var newClass = $( '#heroClass' ).text();
+	$( '.classPH' ).each( function () {
+		$( this ).text( newClass );
+	} );
+
+	// update Hero's Instinct for AerynBLevels
+	var encCard = 'an <strong>Event</strong>';
+	if ( $( "#vilHero" ).prop( 'checked' ) == true ) {
+		encCard = 'a <strong>Event—Attack</strong>'
+	}
+	else if ( (
+		          newClass.toLowerCase() == 'cleric'
+	          ) || (
+		          newClass.toLowerCase() == 'paladin'
+	          ) ) {
+		encCard = 'a <strong>Curse</strong>'
+	}
+	else if ( (
+		          newClass.toLowerCase() == 'ranger'
+	          ) || (
+		          newClass.toLowerCase() == 'archer'
+	          ) ) {
+		encCard = 'an <strong>Environment</strong> or <strong>Hazard</strong>'
+	}
+	else if ( newClass.toLowerCase() == 'rogue' ) {
+		encCard = 'a <strong>Trap</strong>'
+	}
+
+	$( '.classEvent' ).each( function () {
+		$( this ).html( encCard );
+	} );
+
+};
+
+/* --------------------
+   Output Card Image(s)
+   -------------------- */
 function saveImg() {
 	var node = document.getElementById( 'sheet1' );
 	var sheetImage = new Image();
@@ -137,129 +202,16 @@ function saveImg() {
 
 }
 
+/* ----------------------------------
+   Open Modal to Display Saved Images
+   ---------------------------------- */
 var openSaveModel = function () {
 	$.when( saveImg() ).then( $( "#saveModal" ).modal( 'show' ) );
 };
 
-var updateClass = function () {
-
-	// update class fields
-	var newClass = $( '#heroClass' ).text();
-	$( '.classPH' ).each( function () {
-		$( this ).text( newClass );
-	} );
-
-	// update Hero's Instinct for AerynBLevels
-	var encCard = 'an <strong>Event</strong>';
-	if ( $( "#vilHero" ).prop( 'checked' ) == true ) {
-		encCard = 'a <strong>Event—Attack</strong>'
-	}
-	else if ( (
-	          newClass.toLowerCase() == 'cleric'
-	          ) || (
-	          newClass.toLowerCase() == 'paladin'
-	          ) ) {
-		encCard = 'a <strong>Curse</strong>'
-	}
-	else if ( (
-	          newClass.toLowerCase() == 'ranger'
-	          ) || (
-	          newClass.toLowerCase() == 'archer'
-	          ) ) {
-		encCard = 'an <strong>Environment</strong> or <strong>Hazard</strong>'
-	}
-	else if ( newClass.toLowerCase() == 'rogue' ) {
-		encCard = 'a <strong>Trap</strong>'
-	}
-
-	$( '.classEvent' ).each( function () {
-		$( this ).html( encCard );
-	} );
-
-};
-
-$( document ).ready( function () {
-
-
-	// Load the levels template.
-	changeLevelType( currentLevelStyle );
-
-	var updateColorPreview = function () {
-		$( '#colorPreview' ).css( 'filter', 'hue-rotate(' + colorHue.getValue() + 'deg) saturate(' + colorSat.getValue() + '%)' );
-		$( '.sheet' ).css( 'filter', 'hue-rotate(' + colorHue.getValue() + 'deg) saturate(' + colorSat.getValue() + '%)' );
-	};
-
-	// Color Hue Slider
-	var colorHue = $( '#colorHue' ).slider()
-		.on( 'slide', updateColorPreview )
-		.data( 'slider' );
-
-	// Color Saturation Slider
-	var colorSat = $( '#colorSat' ).slider()
-		.on( 'slide', updateColorPreview )
-		.data( 'slider' );
-
-	$( '#colorPresets .preset' ).on( 'click', function () {
-		$( '#colorPreview' ).css( 'filter', 'hue-rotate(' + $( this ).data( 'hue' ) + 'deg) saturate(' + $( this ).data( 'sat' ) + '%)' );
-		$( '.sheet' ).css( 'filter', 'hue-rotate(' + $( this ).data( 'hue' ) + 'deg) saturate(' + $( this ).data( 'sat' ) + '%)' );
-		colorHue.setValue( $( this ).data( 'hue' ) );
-		colorSat.setValue( $( this ).data( 'sat' ) );
-	} );
-
-	$( 'input[type=radio][name=levelType]' ).change( function () {
-		currentLevelStyle = this.value;
-		changeLevelType( currentLevelStyle );
-	} );
-
-	$( 'input[type=radio][name=sheetStyle]' ).change( function () {
-		currentSheetStyle = this.value;
-		changeSheetType( currentSheetStyle );
-	} );
-
-
-	$( 'input[type=radio][name=heroImageAlign]' ).change( function () {
-		var newAlign = this.value;
-		$( ".charImg" ).each( function () {
-			$( this ).css( "background-position", newAlign );
-		} );
-	} );
-
-	new Medium( {
-		element: $( '#heroName' )[0],
-		mode: Medium.inlineMode,
-		maxLength: 25,
-		placeholder: 'Hero Name'
-	} );
-	new Medium( {
-		element: $( '#heroRace' )[0],
-		mode: Medium.inlineMode,
-		maxLength: 25,
-		placeholder: 'Race'
-	} );
-	new Medium( {
-		element: $( '#heroClass' )[0],
-		mode: Medium.inlineMode,
-		maxLength: 25,
-		placeholder: 'Class'
-	} );
-
-	$( '#heroClass' ).blur( updateClass );
-
-	new Medium( {
-		element: $( '#heroBlurb' )[0],
-		mode: Medium.partialMode,
-		placeholder: 'A brief blurb about the hero.'
-	} );
-
-	$( "#heroImageSelect" ).val( "" );
-
-	$( "#vilHero" ).prop( 'checked', false )
-		.change( function () {
-			updateClass();
-		} );
-
-} );
-
+/* -----------------
+   Update Hero Image
+   ----------------- */
 function previewFile() {
 	var file = $( "#heroImageSelect" )[0].files[0];
 	var reader = new FileReader();
@@ -274,3 +226,97 @@ function previewFile() {
 		reader.readAsDataURL( file );
 	}
 }
+
+/* ----------------------------------------------------
+   Main Function: Anything that needs to run at startup
+   ---------------------------------------------------- */
+$( document ).ready( function () {
+
+	// Setup global editable fields.
+	new Medium( {
+		            element: $( '#heroName' )[0],
+		            mode: Medium.inlineMode,
+		            maxLength: 25,
+		            placeholder: 'Hero Name'
+	            } );
+	new Medium( {
+		            element: $( '#heroRace' )[0],
+		            mode: Medium.inlineMode,
+		            maxLength: 25,
+		            placeholder: 'Race'
+	            } );
+	new Medium( {
+		            element: $( '#heroClass' )[0],
+		            mode: Medium.inlineMode,
+		            maxLength: 25,
+		            placeholder: 'Class'
+	            } );
+
+	$( '#heroClass' ).blur( updateClass );
+
+	new Medium( {
+		            element: $( '#heroBlurb' )[0],
+		            mode: Medium.partialMode,
+		            placeholder: 'A brief blurb about the hero.'
+	            } );
+
+	// Clear settings on reload.
+	$( "#heroImageSelect" ).val( "" );
+	$( "#vilHero" ).prop( 'checked', false )
+		.change( function () {
+			updateClass();
+		} );
+
+	// Load the levels template.
+	changeLevelType( currentLevelStyle );
+
+		/* -----------------------
+		   Updates the card colors
+		   ----------------------- */
+		var updateColorPreview = function () {
+			$( '#colorPreview' ).css( 'filter', 'hue-rotate(' + colorHue.getValue() + 'deg) saturate(' + colorSat.getValue() + '%)' );
+			$( '.sheet' ).css( 'filter', 'hue-rotate(' + colorHue.getValue() + 'deg) saturate(' + colorSat.getValue() + '%)' );
+		};
+
+	// Color Hue Slider
+	var colorHue = $( '#colorHue' ).slider()
+		.on( 'slide', updateColorPreview )
+		.data( 'slider' );
+
+	// Color Saturation Slider
+	var colorSat = $( '#colorSat' ).slider()
+		.on( 'slide', updateColorPreview )
+		.data( 'slider' );
+
+	// Color presets
+	$( '#colorPresets .preset' ).on( 'click', function () {
+		$( '#colorPreview' ).css( 'filter', 'hue-rotate(' + $( this ).data( 'hue' ) + 'deg) saturate(' + $( this ).data( 'sat' ) + '%)' );
+		$( '.sheet' ).css( 'filter', 'hue-rotate(' + $( this ).data( 'hue' ) + 'deg) saturate(' + $( this ).data( 'sat' ) + '%)' );
+		colorHue.setValue( $( this ).data( 'hue' ) );
+		colorSat.setValue( $( this ).data( 'sat' ) );
+	} );
+
+	// Sheet Style Buttons
+	$( 'input[type=radio][name=sheetStyle]' ).change( function () {
+		changeSheetType( this.value );
+	} );
+
+	// Level System Buttons
+	$( 'input[type=radio][name=levelType]' ).change( function () {
+		changeLevelType( this.value );
+	} );
+
+	// Level Marker Buttons
+	$( 'input[type=radio][name=levelMarker]' ).change( function () {
+		changeMarkerSize( this.value );
+	} );
+
+	// Hero Image Alignment
+	$( 'input[type=radio][name=heroImageAlign]' ).change( function () {
+		var newAlign = this.value;
+		$( ".charImg" ).each( function () {
+			$( this ).css( "background-position", newAlign );
+		} );
+	} );
+} );
+

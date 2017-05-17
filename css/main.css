@@ -61,7 +61,7 @@
    Toolbar
    ========================================================================== */
 
-body {padding-top: 100px; padding-bottom: 100px}
+body {padding-top: 100px;}
 
 .navbar-btn {margin-left: .5em; margin-right: .5em;}
 
@@ -285,11 +285,15 @@ body {padding-top: 100px; padding-bottom: 100px}
     left: -3em;
 }
 
+
 .wide84 .AerynBLevels .level h3:before {
     top: -3.25em;
     left: -3.25em;
 }
 
+.sheet .markerNone .level h3:before {
+    display: none;
+}
 .sheet .level h3 {
     display: block;
     margin: 0;
@@ -303,6 +307,10 @@ body {padding-top: 100px; padding-bottom: 100px}
 .wide84 .AerynBLevels .level h3 {
     padding-left: 18.5%;
     padding-right: 4%;
+}
+
+.sheet .AerynBLevels.markerNone .level h3 {
+    padding: 1% 4%;
 }
 
 .sheet .level h3 .costs {
@@ -338,12 +346,17 @@ body {padding-top: 100px; padding-bottom: 100px}
     padding-left: 15%;
 }
 
+.sheet .markerNone .level h3,
+.sheet .BaseLevels.markerNone .level h3{
+    padding-left: 3%;
+}
+
 
 .sheet .statRow {
     font-family : mentorsansstd, sans-serif;
     text-transform: uppercase;
     display: table;
-    width: 90%;
+    width: 88%;
     list-style: none;
     padding-left: 0;
     margin: 6px 0 6px 1in;
@@ -352,6 +365,13 @@ body {padding-top: 100px; padding-bottom: 100px}
 .wide84 .AerynBLevels .statRow {
     margin-left: .75in;
     padding-right: 1em;
+}
+
+.sheet .markerNone .statRow {
+    margin-left: 0;
+    width: 100%;
+    padding-left: .25em;
+    padding-right: .25em;
 }
 
 .sheet .statRow .stat {
@@ -374,7 +394,7 @@ body {padding-top: 100px; padding-bottom: 100px}
     padding: 3px 5px;
     border-radius: 5px;
     margin-left: .25em;
-    margin-right: .5em;
+    margin-right: .25em;
     color: #000;
     overflow: visible;
 }
@@ -499,3 +519,12 @@ body {padding-top: 100px; padding-bottom: 100px}
 
 #saveModal img {width: 100%; height: auto;}
 
+.pageFoot {
+    margin-top: 1em;
+    background-color: #000;
+    color: #fff;
+}
+.pageFoot a {
+    color: #fff;
+    text-decoration : underline;
+}
